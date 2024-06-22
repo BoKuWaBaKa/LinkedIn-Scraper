@@ -23,20 +23,20 @@ The backend is built with Flask and uses Selenium for web scraping LinkedIn data
 3. **Update the `driver_path` variable in the `SELENIUM/app.py` file, depending on the web browser you wish to use. I have provided the drivers for Chrome and Edge with this repository. (Versions may vary, so you can download the latest version of your web-driver from the internet.)**
     ```python
     example: (for me it was)
-    driver_path = r"D:\Users\HP\Desktop\PPPP\SELENIUM\chromedriver-win64\chromedriver.exe"
+    driver_path = r"D:\linkedin-data-fetcher-master\SELENIUM\edgedriver_win64\msedgedriver.exe"
     ```
 
 4. **Update the argument of `username.send_keys` and `pword.send_keys` in the `SELENIUM/app.py` file with your own Linkedin E-mail and Password**
 
 
-5. **Run the backend server: (make sure to be on the path /SELENIUM)**
+5. **Run the backend server: (make sure to be on the path `\SELENIUM`)**
     ```python
     python app.py
     ```
 
 ### Code Explanation
 
-- **get_linkedin_data(company)**: This function uses Selenium to log into LinkedIn and fetch the number of followers and employees for a specified company. It handles the login process, navigates to the company's LinkedIn page, scrapes the data, and returns it as a dictionary.
+- **`get_linkedin_data(company)`**: This function uses Selenium to log into LinkedIn and fetch the number of followers and employees for a specified company. It handles the login process, navigates to the company's LinkedIn page, scrapes the data, and returns it as a dictionary.
 - **API Endpoint `/api/data`**: This POST endpoint receives a JSON object with the company name, calls the `get_linkedin_data` function, and returns the scraped data as a JSON response.
 
 ## Frontend
@@ -49,17 +49,19 @@ The frontend is built with React and styled-components for styling. It includes 
 
 ### Installation
 
-1. **Navigate to the `frontend` directory:**
+1. **Open up a new terminal window**
+
+2. **Navigate to the `frontend` directory:**
     ```
     cd frontend
     ```
 
-2. **Install the dependencies: (NOTE: update the package.json if the version gets too old)**
+3. **Install the dependencies: (NOTE: update the package.json if the version gets too old)**
     ```bash
     npm install
     ```
 
-3. **Run the React app:**
+4. **Run the React app:**
     ```bash
     npm start
     ```
@@ -96,9 +98,9 @@ The frontend is built with React and styled-components for styling. It includes 
 
 ## Notes
 
-- **Manual OTP Entry**: The script waits for manual OTP entry for 20 seconds(which you can change from the app.py file inside SELENIUM) during the LinkedIn login process. Ensure you enter the OTP within the given time frame.
+- **Manual OTP Entry**: In case login proceeds only through OTP verification, the script waits for manual OTP entry for 20 seconds(which you can change from the app.py file inside SELENIUM) during the LinkedIn login process. Ensure you enter the OTP within the given time frame.
 - **LinkedIn Credentials**: Replace the placeholder `your-email@gmail.com` and `your-password` in the `get_linkedin_data` function with valid LinkedIn credentials.
 - **Web-Driver Path**: Ensure the web driver's executable path is correct in the backend code
 
 ## Created by Sharath S(IIT Kharagpur'26)
-### Demo video : https://shorturl.at/1jrYI
+### Demo video : https://tinyurl.com/msk44z2k
